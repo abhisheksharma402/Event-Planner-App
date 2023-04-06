@@ -6,6 +6,7 @@ import Login from './Components/Login';
 import UserDashboard from './Components/UserDashboard';
 import DashboardNav from './Components/DashboardNav';
 import CreateEvent from './Components/CreateEvent';
+import EventCard from './Components/EventCard';
 import { useState } from 'react';
 
 
@@ -15,7 +16,7 @@ function App() {
   const [events, setEvents] = useState([]);
   
   const updateEvents = (event) =>{
-    console.log(event);
+    // console.log(event);
     setEvents([...events,event]);
   }
 

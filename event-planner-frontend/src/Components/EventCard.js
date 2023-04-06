@@ -1,8 +1,11 @@
 import React from 'react'
 
 const EventCard = (props) => {
+
+    console.log("event card props: ",props);
+
     return (
-        <div className='col-lg-2 col-md-5 border event-card'>
+        <div className='col-lg-2 col-md-5 border event-card'>   
             <h3>{props.event.eventName}</h3>
             <div>
                 <h6>Description</h6>

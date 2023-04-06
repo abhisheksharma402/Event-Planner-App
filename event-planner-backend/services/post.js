@@ -11,4 +11,14 @@ const storeUser = async (user) =>{
     
 }
 
-module.exports = {storeUser};
+const storeEvent = async (event) =>{
+    const query = `INSERT 
+                    INTO public."Event"
+                    (event_name, event_description, event_date, venue)
+                    VALUES ('${event.eventName}', '${event.description}', '${event.date}', '${event.location}')`;
+                    
+    const res = await queryData(query);
+    return res;
+}
+
+module.exports = {storeUser, storeEvent};

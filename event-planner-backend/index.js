@@ -13,6 +13,7 @@ const port = 3001;
 
 var signupRoute = require('./Routes/signup');
 var loginRoute = require('./Routes/login');
+var createEventRoute = require('./Routes/createEvent');
 
 app.use(cors({
     origin: "http://localhost:3000",
@@ -35,6 +36,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 // app.use('/', indexRouter);
 app.use('/signup', signupRoute);
 app.use('/login',loginRoute);
+app.use('/createEvent', createEventRoute);
 
 
 

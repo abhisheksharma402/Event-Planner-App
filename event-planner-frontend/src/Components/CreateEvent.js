@@ -38,28 +38,34 @@ const CreateEvent = (props) => {
     // }
 
 
-    // const postEvent = async ()=>{
+    const postEvent = async ()=>{
 
-    //     // console.log(events);
+        // console.log(events);
 
-    //     const response = await fetch('http://localhost:3001/createEvent',{
-    //         method: 'POST',
-    //         mode: 'cors',
-    //         cache: 'no-cache',
-    //         credentials: 'same-origin',
-    //         headers: {
-    //         "Content-Type": "application/json",
-    //         // 'Content-Type': 'application/x-www-form-urlencoded',
-    //         },
-    //         redirect: "follow", // manual, *follow, error
-    //         referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
-    //         body: JSON.stringify(event)
-    //     });
+        const response = await fetch('http://localhost:3001/createEvent',{
+            method: 'POST',
+            mode: 'cors',
+            cache: 'no-cache',
+            credentials: 'same-origin',
+            headers: {
+            "Content-Type": "application/json",
+            // 'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            redirect: "follow", // manual, *follow, error
+            referrerPolicy: "no-referrer", // no-referrer, *no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+            body: JSON.stringify({
+                eventName: eventName,
+                description: description,
+                date: date,
+                location: location
+            })
+        });
 
-    //     return response.json();
-    // }
+        return response.json();
 
-    const handle = (e) => {
+    }
+
+    const handle = async (e) => {
         e.preventDefault();
 
         props.updateEvents({
@@ -68,6 +74,9 @@ const CreateEvent = (props) => {
             date: date,
             location: location
         });
+
+        const res = await postEvent();
+        
     }
 
 
